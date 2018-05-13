@@ -20,6 +20,8 @@ Route::get('/usuarios','UsersController@index');
 
 Route::get('/usuarios/{id}','UsersController@show')->where('id','[0-9]+');
 
+Route::get('/usuarios/info','UsersController@info');
+
 Route::get('/usuarios/nuevo','UsersController@create');
 
 Route::get('/usuarios/{id}/edit','UsersController@edit')->where('id','[0-9]+');
