@@ -14,8 +14,10 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
+        /* Peticion a la url / */
         $response = $this->get('/');
 
+        /* Comprueba si devuelve 200 todo ok */
         $response->assertStatus(200);
     }
 }
