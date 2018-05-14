@@ -27,7 +27,9 @@ class UsersController extends Controller
 
     public function show($id){
 
-    return "Usuario {$id}";
+    $title = "Mostrando usuario";
+
+    return view('users-show',compact('id','title'));
 
     }
 

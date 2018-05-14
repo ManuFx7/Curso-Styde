@@ -1,12 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Listado de Usuarios</title>
-</head>
-<body>
-	<h1>{{ $title }}</h1>
+@extends('layout')
 
-	<ul>
+@section('title','Usuarios')
+
+	
+@section('content')
+
+   <h1>{{ $title }}</h1>
+    
+    <ul>
 	
 	@forelse($users as $user)
 
@@ -16,5 +17,13 @@
 	  <li> No hay usuarios registrados </li>
 
 	@endforelse
-</body>
-</html>
+
+	</ul>
+
+@endsection
+
+@section('sidebar')
+ 
+ 	<h2> Barra lateral personalizada </h2>
+
+@endsection
