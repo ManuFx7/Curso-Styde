@@ -26,4 +26,21 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    // Un usuario pertenece a una profession
+
+    public function profession(){
+
+        return $this->belongsTo('App\Models\Profession');
+    }
+
+    public static function findByEmail($email){
+
+        return User::where('email',$email)->first();
+    }
+
+    public function isAdmin(){
+        return $this->is_admin;
+    }
 }

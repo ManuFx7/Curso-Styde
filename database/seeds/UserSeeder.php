@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use App\User;
+use App\Models\Profession;
 
 class UserSeeder extends Seeder
 {
@@ -12,11 +14,33 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-        	'name' => 'Manu Paez',
-        	'email' => 'manuelpaez@expacioweb.com',
-        	'password' => bcrypt('laravel'),
-        	'profession_id' => 1
-        ]);
+
+    	$professionId = Profession::where('title','BackDeveloper')->value('id');
+
+    	User::create([
+    		'name' => 'Manu Paez',
+    		'email' => 'manuelpaez@expacioweb.com',
+    		'password' => bcrypt('laravel'),
+    		'profession_id' => $professionId,
+    		'is_admin' => true
+    	]);
+
+
+    	User::create([
+    		'name' => 'Noelia Paez',
+    		'email' => 'noelia@expacioweb.com',
+    		'password' => bcrypt('laravel'),
+    		'profession_id' => $professionId
+    	]);
+
+
+    	User::create([
+    		'name' => 'Pepe Paez',
+    		'email' => 'pepe@expacioweb.com',
+    		'password' => bcrypt('laravel'),
+    		'profession_id' => 1
+    	]);
+
+
     }
 }
