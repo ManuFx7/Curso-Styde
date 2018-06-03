@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();  //Varchar Unique
             $table->string('password');
             $table->boolean('is_admin')->default(false);
-            $table->integer('profession_id')->unsigned();
+            $table->integer('profession_id')->unsigned()->nullable();
             $table->foreign('profession_id')->references('id')->on('professions');
             $table->rememberToken();
             $table->timestamps();
