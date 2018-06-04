@@ -83,7 +83,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="{{ url('/usuarios')}}">Usuarios</a>
+                    <a href="{{ route('users')}}">Usuarios</a>
                     <a href="{{ url('/usuarios/info')}}">Info</a>
                     <a href="https://laravel-news.com">News</a>
                     <a href="https://forge.laravel.com">Forge</a>

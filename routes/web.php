@@ -16,13 +16,13 @@ Route::get('/', function () {
 });
 
 
-Route::get('/usuarios','UsersController@index');
+Route::get('/usuarios','UsersController@index')->name('users');
 
-Route::get('/usuarios/{id}','UsersController@show')->where('id','[0-9]+');
+Route::get('/usuarios/detalles/{user}','UsersController@show')->where('user','[0-9]+')->name('users.show');
 
-Route::get('/usuarios/info','UsersController@info');
+Route::get('/usuarios/info','UsersController@info')->name('users.info');
 
-Route::get('/usuarios/nuevo','UsersController@create');
+Route::get('/usuarios/nuevo','UsersController@create')->name('users.create');
 
 Route::get('/usuarios/{id}/edit','UsersController@edit')->where('id','[0-9]+');
 

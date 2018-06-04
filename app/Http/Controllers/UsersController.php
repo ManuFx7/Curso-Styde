@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\User;
 
 class UsersController extends Controller
 {
@@ -10,26 +12,28 @@ class UsersController extends Controller
 
     	$title = "Listado de Usuarios";
 
-    	if(request()->has('empty')){
+        //$users = DB::table('users')->get();
+        $users = User::all();
 
-    		$users = [];
-
-    	}else{
-
-    	$users = ["Joel",'Elie','Manu'];
+        return view('users',compact('title','users'));
     	
     	//return view('users',['users' => $users, 'title' => "Listado de Usuarios"]);
-     }
 
-	  	return view('users',compact('title','users'));
-
+	  	
     }
 
-    public function show($id){
+    public function show(User $user){
 
     $title = "Mostrando usuario";
 
-    return view('users-show',compact('id','title'));
+    //$user = User::findOrFail($id);
+
+    /*if($user == null){
+
+        return response()->view('errors.404',[], 404);
+    }*/
+
+    return view('users-show',compact('user','title'));
 
     }
 
