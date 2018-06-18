@@ -27,6 +27,13 @@
 
                 </li>
 
+                 <li class="nav-item">
+
+                    <a class="nav-link" href="{{ url('/usuarios/nuevo')}}">Crear Usuario</a>
+
+
+                </li>
+
                 <li class="nav-item">
 
                     <a class="nav-link disabled" href="{{ url('/usuarios/info')}}">Info</a>

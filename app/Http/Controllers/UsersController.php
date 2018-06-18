@@ -39,7 +39,29 @@ class UsersController extends Controller
 
     public function create(){
 
-    return "Creacion nuevo usuario";
+    $titulo = "Creación de Usuario";
+    return view('create-users',compact('titulo'));
+    }
+
+    public function store(){
+
+      $datos = request()->validate([
+        'name' => 'required',
+        'email' => ['required','email','unique:users,email'],
+        'password' => 'required'
+      ]);
+
+      /* Pedir solo estos datos */
+      //$datos = request()->only('name','email','password');
+
+      User::create([
+        'name' => $datos['name'],
+        'email' => $datos['email'],
+        'password' => $datos['password']
+      ]);
+
+      return redirect()->route('users');
+
     }
 
     public function edit($id){
@@ -47,6 +69,7 @@ class UsersController extends Controller
      return "Editando usuario {$id}";
 
     }
+
 
     public function info(){
 
